@@ -1,14 +1,15 @@
 import 'package:dars61/widgets/sliver_header_delagate.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 void main() => runApp(Salom());
 
 class Salom extends StatelessWidget {
+  const Salom({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -19,6 +20,8 @@ class Salom extends StatelessWidget {
 
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +96,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
+            const SliverAppBar(
               backgroundColor: Colors.red,
               pinned: true,
               expandedHeight: 200.0,
@@ -106,7 +109,7 @@ class _MyAppState extends State<MyApp> {
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   return ListTile(
-                    title: Text("List Item ${index}"),
+                    title: Text("List Item $index"),
                   );
                 },
                 childCount: 10,
@@ -119,7 +122,7 @@ class _MyAppState extends State<MyApp> {
               pinned: true,
                 delegate: Nasl(
               child: Container(
-                  color: Colors.deepPurpleAccent, child: Center(child: Text("salom qalisan"))),
+                  color: Colors.deepPurpleAccent, child: const Center(child: Text("salom qalisan"))),
               max: 200,
               min: 60,
             )),
@@ -137,25 +140,25 @@ class _MyAppState extends State<MyApp> {
                     }),
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 100,
               ),
             ),
             SliverPadding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               sliver: SliverGrid(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
                     return Container(
                       alignment: Alignment.center,
                       color: Colors.teal[100 * (index % 9)],
-                      child: Text("grid soni ${index}"),
+                      child: Text("grid soni $index"),
                     );
                   },
                   childCount: 10,
                 ),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
                   crossAxisSpacing: 10.0,
                   mainAxisSpacing: 10.0,
